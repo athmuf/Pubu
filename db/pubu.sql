@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2022 at 02:56 PM
+-- Generation Time: May 26, 2022 at 07:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -38,22 +38,6 @@ CREATE TABLE `buku` (
   `gambar` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `buku`
---
-
-INSERT INTO `buku` (`id_buku`, `donatur_id`, `judul_buku`, `pengarang`, `penerbit`, `kategori`, `deskripsi`, `gambar`) VALUES
-(1, 1, 'Cepat & Mudah Memahami Hukum Pidana', 'Ismu Gunadi & Jonaedi Efendi', 'Prenadamedia Grup', 6, 'Referensi hukum ini dimaksudkan untuk membantu masyarakat awam yang tidak mengerti hukum, namun penting untuk diketahui.', 'memahamihukum.jpg'),
-(2, 2, 'Algoritma Genetika', 'Zainudin Zukhri', 'Andi', 4, 'Algoritma Genetika Tujuan jamak tengah menjadi perbincangan baik di dunia akademisi maupun di kalangan praktisi.', 'algoritma.jpg'),
-(51, 5, 'Ekonomi moneter', 'Lestari Ambarini', 'IN MEDIA', 2, 'Buku secara khusus mempelajari pengaruh uang terhadap aktivitas perekonomian sebuah negara.', 'ekonomi.jpg'),
-(52, 6, 'Potret Buram Politik Indonesia', 'Bambang Astianto', 'MITRA WACANA', 9, 'Desain pembangunan sistem politik era reformasi memiliki potensi yang tanpa disadari  menghancurkan kehidupan Bangsa dan Negara Indonesia.', 'politik.jpg'),
-(53, 3, 'Biografi Gus Dur', 'Greg Barton', 'LKiS', 1, 'Persoalan hubungan sipil-militer selama masa reformasi menjadi fokus kajian yang penting, apalagi pada masa Presiden Abdurrahman Wahid.', 'biografi.jpg'),
-(54, 11, 'Runtuhnya Kerajaan Hindu Jawa', 'Slamet Muljana', 'LKiS', 8, 'Buku ini memaparkan tentang proses runtuhnya kerajaan Majapahit.', 'sejarah.jpg'),
-(55, 9, 'Black Showman Dan Pembunuhan Di Kota Tak Bernama', 'Keigo Higashino', 'Gramedia Pustaka Utama', 3, 'Pembunuhan bisa terjadi di mana saja, termasuk di sebuah kota kecil, terpencil, dan nyaris terlupakan di tengah pandemi Covid-19.', 'fiksi.jpg'),
-(56, 7, 'Orang-Orang Biasa', 'Andrea Hirata', 'Bentang Pustaka', 7, 'Orang-Orang Biasa antara karena kekecewaan yang besar akan kegagalannya memperjuangkan seorang anak miskin yang pintar untuk masuk Fakultas Kedokteran Universitas Bengkulu.', 'novel.jpg'),
-(57, 10, 'Seni berbicara', 'Larry king', 'Gramedia', 10, 'Setelah membaca buku ini, Anda akan mampu mengikuti segala percakapan dengan penuh keyakinan, dan Anda akan tahu cara menyampaikan pesan dengan efektif, dalam situasi apa pun.', 'umum.jpg'),
-(58, 8, 'Teknik Dasar Vidiografi	', 'Sarwo Nugroho, S.Kom, M.Kom', 'Andi Offset', 5, 'Perkembangan film dalam pertelevision maupun layar lebar semakin pesat belakangan ini. Kebutuhan akan kamera yang baik sebagai alat pendukung utama dalam pembuatan film semakin meningkat.', 'hobi.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -70,16 +54,11 @@ CREATE TABLE `kategori_buku` (
 --
 
 INSERT INTO `kategori_buku` (`id_kategori`, `kategori`) VALUES
-(1, 'Biografi'),
-(2, 'Bisnis & Keuangan'),
-(3, 'Fiksi'),
-(4, 'Komputer & Internet'),
-(5, 'Hobi & Keterampilan'),
-(6, 'Hukum'),
-(7, 'Novel & Sastra'),
-(8, 'Sejarah'),
-(9, 'Sosial & Politik'),
-(10, 'Umum');
+(1, 'Realigi'),
+(2, 'Bisnis & Investasi'),
+(3, 'Sains'),
+(4, 'Komik'),
+(5, 'Novel');
 
 -- --------------------------------------------------------
 
@@ -105,9 +84,9 @@ CREATE TABLE `pengiriman` (
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(250) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
-  `no_hp` int(20) DEFAULT NULL,
+  `no_hp` varchar(20) DEFAULT NULL,
   `alamat` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -116,17 +95,19 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `nama`, `no_hp`, `alamat`) VALUES
-(1, 'ajil', '12345', 'Azriel', 622345678, 'Dramaga, Bogor'),
-(2, 'adri01', '12345', 'Adri', 623456789, 'Bubulak, Bogor'),
-(3, 'adyee', '12345', 'ayda', 623306020, 'Depok, Jawa barat'),
-(4, 'senda', '12345', 'Sendy', 622866168, 'Makasar, Sulawesi Selatan'),
-(5, 'moona', '12345', 'Mona', 628702393, 'mondstadt, Teyvat'),
-(6, 'keqinguwu', '12345', 'Keqing', 622195508, 'Liyue, Teyvat'),
-(7, 'lista1', '12345', 'Lista R', 628708151, 'Bekasi, Jawa Barat'),
-(8, 'raacea', '12345', 'Rei', 622824701, 'Jakarta, Jawa Barat'),
-(9, 'downa', '12345', 'Doni', 623471260, 'Sleman, Yogjakarta'),
-(10, 'somey99', '12345', 'Somad', 621432330, 'Tegal, Jawa Tengah'),
-(11, 'budyman', '12345', 'Budi', 621906304, 'Jambi, Sumatra');
+(18, 'aa', '$2y$10$tdtRA/S/5iokrLpKUU9SieOnI0t6bfJwl1p/EarSaHWcz6WPYNojC', NULL, NULL, NULL),
+(19, 'ajil', '$2y$10$HL2I5NbBEMJOu0FXAB36N.81gXOpRZLLvcymcdfmUaJJVd2Z1PGHC', NULL, NULL, NULL),
+(20, 'adri01', '$2y$10$PYvF6vh6Yx1f7SwJJIxOcuQLWjvpyVwML7p6umZDjgfZe5edT3DwC', NULL, NULL, NULL),
+(21, 'dheaa', '$2y$10$BrRmPbxSO9oris8VWOLQwOnRDqmTrKjctaG4XKkvh8/NYEanCBH7O', NULL, NULL, NULL),
+(22, 'adyee', '$2y$10$VgI.uQ/CohKF3iIFzT.xaeSRVIrQ8PKrPwheh9wOD4TAYodJjg2Xu', NULL, NULL, NULL),
+(23, 'senda', '$2y$10$gFWzQfDTBEdnPimVOOFsuOjDb6ViSHBuV9eXdrlXJUmlyXora88hC', NULL, NULL, NULL),
+(24, 'moona', '$2y$10$j1o5eYAXIHbi0qPcuoy/suQFYrlsI7CMGijd8weOALMuI5MgV2VqK', NULL, NULL, NULL),
+(25, 'keqinguwu', '$2y$10$mNw9nH3iQMDJ64T4XWtAd.I4vvOzGDuq/NyBWxNJRAckJRbbBYNEy', NULL, NULL, NULL),
+(26, 'lista1', '$2y$10$71YBU1pGGc.p1XAS1ibHNO7c71Wd2yRT98szL6BQFijZF3OeSi8WC', NULL, NULL, NULL),
+(27, 'raacea', '$2y$10$ZDuQ3UAwzpzz2DpwJjxjfu9IpFWt2Gzy7uIPXPIPbtOeBTOMo0A3S', NULL, NULL, NULL),
+(28, 'downa', '$2y$10$OosKk0SATp6SdjDS/7n9juHR94f/TX6tnt1wewc9AFe5m1sn/Mkx6', NULL, NULL, NULL),
+(29, 'somey99', '$2y$10$5cuGR3XLok2fgmKQB6l4OeO9cupUj7.CLpxQa8qHHRf5bdVGSvBPW', NULL, NULL, NULL),
+(30, 'budyman', '$2y$10$e2/pT92TcqSeK9UoR4jKqu4Xpeft0UaszTKuOz2rmG0Hnm1NYokam', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -181,7 +162,7 @@ ALTER TABLE `kategori_buku`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Constraints for dumped tables
