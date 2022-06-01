@@ -1,0 +1,35 @@
+/*PUBU background header*/
+.navigasi {
+    background-color: #362209;
+}
+/*PUBU text header*/
+.navbar-brand {
+    color: #EEC585;
+}
+/*background*/
+body {
+   
+    background-image: url('https://wallpaperaccess.com/full/1209401.jpg');
+    background-color : rgba(238, 198, 134, 0.849);
+    background-repeat: no-repeat;
+    background-size: 1450px 1000px;
+    background-attachment: fixed;
+    background-position: 30% 70%;
+    background-blend-mode:lighten;
+    
+}
+label {
+    Color : #362209
+}
+/*tombol register*/
+.btn {
+    background-color: #816444;
+    color: #EEC585;
+    
+}
+h1 {
+    Color : #362209
+}
+p{
+    Color : #362209
+}
