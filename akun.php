@@ -9,6 +9,10 @@ if( !isset($_SESSION["login"]) ) {
 require "parts/header.php"
 ?>
 <a href="endsession.php">logout</a>
+
+
+
 <?php
 require "parts/footer.php"
 ?>
+
