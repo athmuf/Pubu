@@ -24,16 +24,18 @@ if( isset($_POST["register"])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <title>Register | Pungut Buku</title>
+    <link rel="stylesheet" href="style/styleRegister.css">
+    <title>Register | PUBU</title>
 </head>
 
 <body>
-    <nav class="navbar bg-secondary">
+    <div class="navigasi">
+    <nav class="navbar bg-secandary">
         <div class="container-fluid">
-            <a href="index.php"><span class="navbar-brand mb-0 h1 text-light">PUBU</span></a>
+            <a href="index.php"><span class="navbar-brand mb-0 h1 text-secandary">PUBU</span></a>
         </div>
     </nav>
+    </div>
 <!-- Header -->
 
 <!-- Form Register -->
