@@ -1,0 +1,38 @@
+/*background*/
+body {
+   
+    background-image: url('https://wallpaperaccess.com/full/1209401.jpg');
+    background-color : hsl(34, 48%, 30%);
+    background-repeat: no-repeat;
+    background-size: 1450px 1000px;
+    background-attachment: fixed;
+    background-position: 30% 70%;
+    background-blend-mode:multiply;
+    
+}
+/*Welcom to PUBU*/
+.cover-heading{
+    color: #EEC585;
+}
+/*Get your favorite book here*/
+p {
+    color:#ffff
+
+}
+/*PUBU background header*/
+.navigasi {
+    background-color: #362209;
+}
+/*PUBU text header*/
+.navbar-brand {
+    color: #EEC585;
+}
+/*tombol login dan register*/
+.btn {
+    background-color: #816444;
+    color: #EEC585;
+    
+}
+
+
+
