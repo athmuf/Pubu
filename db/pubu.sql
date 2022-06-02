@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2022 at 07:59 AM
+-- Generation Time: Jun 02, 2022 at 11:56 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -29,14 +29,25 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `buku` (
   `id_buku` int(11) NOT NULL,
-  `donatur_id` int(11) NOT NULL,
+  `donatur_id` int(11) DEFAULT NULL,
   `judul_buku` varchar(60) NOT NULL,
   `pengarang` varchar(100) NOT NULL,
   `penerbit` varchar(60) NOT NULL,
-  `kategori` int(20) NOT NULL,
+  `kategori` varchar(200) NOT NULL,
   `deskripsi` varchar(200) DEFAULT NULL,
-  `gambar` varchar(225) NOT NULL
+  `gambar` varchar(225) NOT NULL,
+  `nama` varchar(220) NOT NULL,
+  `kontak` varchar(200) NOT NULL,
+  `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buku`
+--
+
+INSERT INTO `buku` (`id_buku`, `donatur_id`, `judul_buku`, `pengarang`, `penerbit`, `kategori`, `deskripsi`, `gambar`, `nama`, `kontak`, `alamat`) VALUES
+(62, 0, 'Black Showman Dan Pembunuhan Di Kota Tak Bernama', 'Keigo Higashino', 'Gramedia Pustaka Utama', 'novel', 'Pembunuhan bisa terjadi di mana saja, termasuk di sebuah kota kecil, terpencil, dan nyaris terlupakan di tengah pandemi Covid-19.', 'novel1.jpg', 'Adri', '081234', 'Bogor'),
+(65, 0, 'Kita Pergi Hari Ini', 'Ziggy Zezsyazeoviennazabrizkie', 'Gramedia Pustaka Utama', 'novel', 'Mi dan Ma dan Mo tidak pernah melihat kucing seperti Nona Gigi. Tentu saja, mereka sudah pernah melihat kucing biasa. Tapi Nona Gigi adalah Kucing Luar Biasa.', 'kita.jpg', 'Azriel', '081234', 'Dramaga, Bogor');
 
 -- --------------------------------------------------------
 
@@ -45,7 +56,6 @@ CREATE TABLE `buku` (
 --
 
 CREATE TABLE `kategori_buku` (
-  `id_kategori` int(4) NOT NULL,
   `kategori` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -53,12 +63,12 @@ CREATE TABLE `kategori_buku` (
 -- Dumping data for table `kategori_buku`
 --
 
-INSERT INTO `kategori_buku` (`id_kategori`, `kategori`) VALUES
-(1, 'Realigi'),
-(2, 'Bisnis & Investasi'),
-(3, 'Sains'),
-(4, 'Komik'),
-(5, 'Novel');
+INSERT INTO `kategori_buku` (`kategori`) VALUES
+('Realigi'),
+('Bisnis & Investasi'),
+('Sains'),
+('Komik'),
+('Novel');
 
 -- --------------------------------------------------------
 
@@ -117,22 +127,13 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `nama`, `no_hp`, `alamat`
 -- Indexes for table `buku`
 --
 ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id_buku`),
-  ADD KEY `donatur_id` (`donatur_id`),
-  ADD KEY `kategori` (`kategori`);
-
---
--- Indexes for table `kategori_buku`
---
-ALTER TABLE `kategori_buku`
-  ADD PRIMARY KEY (`id_kategori`);
+  ADD PRIMARY KEY (`id_buku`);
 
 --
 -- Indexes for table `pengiriman`
 --
 ALTER TABLE `pengiriman`
   ADD PRIMARY KEY (`resi`),
-  ADD KEY `id_buku` (`id_buku`),
   ADD KEY `id_donatur` (`id_donatur`),
   ADD KEY `id_penerima` (`id_penerima`);
 
@@ -150,38 +151,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
-
---
--- AUTO_INCREMENT for table `kategori_buku`
---
-ALTER TABLE `kategori_buku`
-  MODIFY `id_kategori` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `buku`
---
-ALTER TABLE `buku`
-  ADD CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`donatur_id`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`kategori`) REFERENCES `kategori_buku` (`id_kategori`);
-
---
--- Constraints for table `pengiriman`
---
-ALTER TABLE `pengiriman`
-  ADD CONSTRAINT `pengiriman_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`),
-  ADD CONSTRAINT `pengiriman_ibfk_2` FOREIGN KEY (`id_donatur`) REFERENCES `user` (`user_id`),
-  ADD CONSTRAINT `pengiriman_ibfk_3` FOREIGN KEY (`id_penerima`) REFERENCES `user` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
