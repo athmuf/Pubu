@@ -31,7 +31,7 @@ require "config.php";
                 <a class="nav-link active link-secandary" aria-current="page" href="./home.php">Home</a>
                 <a class="nav-link link-secandary" href="./kategori.php">Kategori</a>
                 <a class="nav-link link-secandary" href="./upload.php">Upload</a>
-                <a class="nav-link link-secandary" href="./akun.php">Akun</a>
+                <a class="nav-link link-secandary" href="./akun.php">Profile</a>
                 <a class="nav-link link-secandary" href="./about.php">Tentang PUBU</a>
             </div>
         </div>
