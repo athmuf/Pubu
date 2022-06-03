@@ -8,8 +8,11 @@ if( !isset($_SESSION["login"]) ) {
 
 require "parts/header.php";
 
-$result=mysqli_query($conn, 'SELECT kategori FROM kategori_buku');
+$result=mysqli_query($conn, 'SELECT kategori FROM kategori');
 $kategori=mysqli_fetch_assoc($result);
+$query2=mysqli_query($conn, 'SELECT kategori FROM buku');
+$hasil=mysqli_fetch_assoc($query2);
+
 
 ?>
 <div class="d-flex align-items-center mt-5">

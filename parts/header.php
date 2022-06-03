@@ -28,7 +28,7 @@ require "config.php";
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active link-secandary" aria-current="page" href="#">Home</a>
+                <a class="nav-link active link-secandary" aria-current="page" href="./home.php">Home</a>
                 <a class="nav-link link-secandary" href="./kategori.php">Kategori</a>
                 <a class="nav-link link-secandary" href="./upload.php">Upload</a>
                 <a class="nav-link link-secandary" href="./akun.php">Akun</a>

@@ -1,0 +1,50 @@
+<div class="d-flex align-items-center mt-5 mb-3">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center w-50">
+        <h1 class="cover-heading">Welcome to Pungut Buku</h1>
+        <p>Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+    </div>
+</div>
+
+<div class="d-flex align-items-center mt-5">
+    <div class="container align-items-center justify-content-center w-75">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <?php while($cari=mysqli_fetch_assoc($result)) : ?>
+            <div class="col">  
+                <div class="card h-100">
+                    <img src="images/<?php echo $cari['gambar'];?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $cari['judul_buku'];?></h5>
+                        <p class="text-secondary"><?php echo $cari['pengarang'];?></p>
+                        <p class="card-text"><?php echo $cari['deskripsi'];?></p>
+                        <a href="deskripsi.php?id_buku=<?php echo $cari['id_buku'];?>" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <?php  endwhile; ?>
+        </div>
+    </div>
+</div>
+
+
+punya ajil
+<div class="mySlides w3-display-container w3-center">
+    <img src="images/iris1.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>IRIS</h3>
+      <p><b>FIKSI ROMANCE</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="images/matt1.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>MATT & MOU</h3>
+      <p><b>FIKSI ROMANCE</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="images/prakarya1.jpg" style="width:100%">
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>PRAKARYA DAN KEWIRAUSAHAAN</h3>
+      <p><b>SMA</b></p>    
+    </div>
+  </div>
