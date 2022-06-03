@@ -24,6 +24,20 @@ if (isset($_POST["upload"])) {
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style/styleRegister.css">
+    <title>Register | PUBU</title>
+</head>
 <div class="d-flex align-items-center mt-5">
     <div class="container align-items-center justify-content-center w-75">
         <h1 class="cover-heading text-center">Upload Buku</h1>
@@ -46,11 +60,11 @@ if (isset($_POST["upload"])) {
                     <label for="kategori" class="form-label">Kategori</label>
                     <select class="form-select" aria-label="kategori" name="kategori" id="kategori">
                         <option selected>Pilih kategori buku</option>
-                        <option value="realigi">Realigi</option>
-                        <option value="bisnis_investasi">Bisnis & Investasi</option>
-                        <option value="sains">Sains</option>
-                        <option value="komik">Komik</option>
-                        <option value="novel">Novel</option>
+                        <option value="Realigi">Realigi</option>
+                        <option value="Bisnis">Bisnis & Investasi</option>
+                        <option value="Sains">Sains</option>
+                        <option value="Komik">Komik</option>
+                        <option value="Novel">Novel</option>
                     </select>
                 </div>
                 <div class="mb-3">
