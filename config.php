@@ -34,16 +34,12 @@ function upload($data) {
     $kontak = htmlspecialchars($data["kontak"]);
     $alamat = htmlspecialchars($data["alamat"]) ;
 
-    //query update data user
-    $query = "INSERT INTO user
-                VALUES ('', '', '', '$nama', '$kontak', '$alamat')";
-    mysqli_query($conn, $query);
-
     //query insert data buku
     $query = "INSERT INTO buku
-                VALUES ('0', '', '$judul_buku', '$pengarang', '$penerbit', '$kategori', '$deskripsi', '$gambar')";
+                 VALUES ('0', '0', '$judul_buku', '$pengarang', '$penerbit', '$kategori', '$deskripsi', '$gambar', '$nama', '$kontak', '$alamat')";
     mysqli_query($conn, $query);
-
+    var_dump($query);
+    var_dump(mysqli_affected_rows($conn));
     return mysqli_affected_rows($conn);
 }
 
@@ -78,5 +74,42 @@ function register ($data) {
     // add new user ke database
     mysqli_query($conn, "INSERT INTO user(user_id, username, password, nama, no_hp, alamat) VALUES('0', '$username', '$password', NULL, NULL, NULL)");
 
+    return mysqli_affected_rows($conn);
+}
+
+// function for search
+function cari($keyword) {
+    $query = "SELECT * FROM buku
+                WHERE
+                judul_buku = '$keyword'";
+    return query($query);
+}
+
+
+// function for checkout
+function checkout($data) {
+    global $conn;
+
+    if (isset($_GET['id_buku'])) {
+        $id_buku = $_GET['id_buku'];
+        $q=mysqli_query($conn, "SELECT * FROM buku WHERE id_buku = '{$id_buku}'");
+        $result=mysqli_fetch_assoc($q);
+        $id_buku = ($result['id_buku']);
+    }
+
+    $id_buku = ($result['id_buku']);
+    $penerima = htmlspecialchars($data["penerima"]);
+    $kontak_penerima = htmlspecialchars($data["kontak_penerima"]);
+    $alamat_kirim = htmlspecialchars($data['alamat_kirim']);
+    $tgl_kirim = date('Y-m-d H:i:s');
+
+    var_dump($id_buku);
+    var_dump($penerima);
+    var_dump($id_buku);
+    //query insert data checkout
+    $query = "INSERT INTO pengiriman
+                VALUES ('0', '$id_buku', '$penerima', '$kontak_penerima', '$alamat_kirim', '$tgl_kirim', '','')";
+    
+    mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }

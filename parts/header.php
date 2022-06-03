@@ -15,7 +15,11 @@ require "config.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="style/styleHeader.css">
 
-    <title>PUBU</title>
+        <!-- W3 CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>PUBU</title>
 </head>
 
 <body>
@@ -23,15 +27,15 @@ require "config.php";
     <nav class="navbar navbar-secandary navbar-expand-lg bg-secandary">
     <div class="container-fluid">
         <a class="navbar-brand mb-0 h1 text-secandary" href="#">PUBU</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active link-secandary" aria-current="page" href="#">Home</a>
+                <a class="nav-link active link-secandary" aria-current="page" href="./home.php">Home</a>
                 <a class="nav-link link-secandary" href="./kategori.php">Kategori</a>
                 <a class="nav-link link-secandary" href="./upload.php">Upload</a>
-                <a class="nav-link link-secandary" href="./akun.php">Akun</a>
+                <a class="nav-link link-secandary" href="./akun.php">Profile</a>
                 <a class="nav-link link-secandary" href="./about.php">Tentang PUBU</a>
             </div>
         </div>

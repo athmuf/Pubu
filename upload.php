@@ -60,11 +60,11 @@ if (isset($_POST["upload"])) {
                     <label for="kategori" class="form-label">Kategori</label>
                     <select class="form-select" aria-label="kategori" name="kategori" id="kategori">
                         <option selected>Pilih kategori buku</option>
-                        <option value="realigi">Realigi</option>
-                        <option value="bisnis_investasi">Bisnis & Investasi</option>
-                        <option value="sains">Sains</option>
-                        <option value="komik">Komik</option>
-                        <option value="novel">Novel</option>
+                        <option value="Realigi">Realigi</option>
+                        <option value="Bisnis">Bisnis & Investasi</option>
+                        <option value="Sains">Sains</option>
+                        <option value="Komik">Komik</option>
+                        <option value="Novel">Novel</option>
                     </select>
                 </div>
                 <div class="mb-3">

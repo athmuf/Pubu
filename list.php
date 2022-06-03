@@ -12,7 +12,6 @@ if (isset($_GET['kategori'])) {
     $kategori = $_GET['kategori'];  
     $result=mysqli_query($conn, "SELECT * FROM buku WHERE kategori = '{$kategori}'");
     $cari=mysqli_fetch_assoc($result);
-    var_dump($cari['judul_buku']);
 }
 
 
@@ -29,7 +28,7 @@ if (isset($_GET['kategori'])) {
                         <h5 class="card-title"><?php echo $cari['judul_buku'];?></h5>
                         <p class="text-secondary"><?php echo $cari['pengarang'];?></p>
                         <p class="card-text"><?php echo $cari['deskripsi'];?></p>
-                        <a href="deskripsi.php?buku=<?php echo $cari['id_buku'];?>" class="stretched-link"></a>
+                        <a href="deskripsi.php?id_buku=<?php echo $cari['id_buku'];?>" class="stretched-link"></a>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2022 at 11:56 AM
+-- Generation Time: Jun 03, 2022 at 04:19 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -46,29 +46,33 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `donatur_id`, `judul_buku`, `pengarang`, `penerbit`, `kategori`, `deskripsi`, `gambar`, `nama`, `kontak`, `alamat`) VALUES
-(62, 0, 'Black Showman Dan Pembunuhan Di Kota Tak Bernama', 'Keigo Higashino', 'Gramedia Pustaka Utama', 'novel', 'Pembunuhan bisa terjadi di mana saja, termasuk di sebuah kota kecil, terpencil, dan nyaris terlupakan di tengah pandemi Covid-19.', 'novel1.jpg', 'Adri', '081234', 'Bogor'),
-(65, 0, 'Kita Pergi Hari Ini', 'Ziggy Zezsyazeoviennazabrizkie', 'Gramedia Pustaka Utama', 'novel', 'Mi dan Ma dan Mo tidak pernah melihat kucing seperti Nona Gigi. Tentu saja, mereka sudah pernah melihat kucing biasa. Tapi Nona Gigi adalah Kucing Luar Biasa.', 'kita.jpg', 'Azriel', '081234', 'Dramaga, Bogor');
+(62, 0, 'Black Showman Dan Pembunuhan Di Kota Tak Bernama', 'Keigo Higashino', 'Gramedia Pustaka Utama', 'Novel', 'Pembunuhan bisa terjadi di mana saja, termasuk di sebuah kota kecil, terpencil, dan nyaris terlupakan di tengah pandemi Covid-19.', 'black.jpg', 'Adri', '081234', 'Bogor'),
+(65, 0, 'Kita Pergi Hari Ini', 'Ziggy Zezsyazeoviennazabrizkie', 'Gramedia Pustaka Utama', 'Novel', 'Mi dan Ma dan Mo tidak pernah melihat kucing seperti Nona Gigi. Tentu saja, mereka sudah pernah melihat kucing biasa. Tapi Nona Gigi adalah Kucing Luar Biasa.', 'kita.jpg', 'Azriel', '081234', 'Dramaga, Bogor'),
+(66, 0, 'Technical Analysis For Mega Profit (Hc)', 'Edianto Ong', 'Gramedia Pustaka Utama', 'Bisnis', 'Saya kira sudah lama para investor Indonesia membutuhkan buku berkualitas seperti ini. Penyajiannya sangat terstruktur, lengkap, dan jelas. Ini adalah buku wajib bagi setiap investor dan trader.', 'technical.jpg', 'Mona', '0812938', 'Mondstadt, Teyvat');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori_buku`
+-- Table structure for table `kategori`
 --
 
-CREATE TABLE `kategori_buku` (
-  `kategori` varchar(50) NOT NULL
+CREATE TABLE `kategori` (
+  `id` int(100) NOT NULL,
+  `kategori` varchar(100) NOT NULL,
+  `nama_kategori` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori_buku`
+-- Dumping data for table `kategori`
 --
 
-INSERT INTO `kategori_buku` (`kategori`) VALUES
-('Realigi'),
-('Bisnis & Investasi'),
-('Sains'),
-('Komik'),
-('Novel');
+INSERT INTO `kategori` (`id`, `kategori`, `nama_kategori`) VALUES
+(1, 'Realigi', 'realigi'),
+(2, 'Bisnis', 'bisnis'),
+(3, 'Sains', 'sains'),
+(4, 'Komik', 'komik'),
+(5, 'Novel', 'novel'),
+(6, 'Realigi', 'realigi');
 
 -- --------------------------------------------------------
 
@@ -77,13 +81,23 @@ INSERT INTO `kategori_buku` (`kategori`) VALUES
 --
 
 CREATE TABLE `pengiriman` (
-  `resi` varchar(12) NOT NULL,
+  `id_pengiriman` int(12) NOT NULL,
   `id_buku` int(11) NOT NULL,
-  `id_donatur` int(11) NOT NULL,
-  `id_penerima` int(11) NOT NULL,
-  `jasa_kirim` varchar(20) NOT NULL,
-  `tgl_kirim` date NOT NULL
+  `penerima` varchar(260) NOT NULL,
+  `kontak_penerima` varchar(20) NOT NULL,
+  `alamat_kirim` varchar(250) NOT NULL,
+  `tgl_kirim` date NOT NULL,
+  `resi` varchar(100) DEFAULT NULL,
+  `jasa_kirim` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pengiriman`
+--
+
+INSERT INTO `pengiriman` (`id_pengiriman`, `id_buku`, `penerima`, `kontak_penerima`, `alamat_kirim`, `tgl_kirim`, `resi`, `jasa_kirim`) VALUES
+(1, 62, 'aa', 'aa', 'aa', '2022-06-02', '', ''),
+(2, 62, 'aa', 'aa', 'aa', '2022-06-02', '', '');
 
 -- --------------------------------------------------------
 
@@ -117,7 +131,9 @@ INSERT INTO `user` (`user_id`, `username`, `password`, `nama`, `no_hp`, `alamat`
 (27, 'raacea', '$2y$10$ZDuQ3UAwzpzz2DpwJjxjfu9IpFWt2Gzy7uIPXPIPbtOeBTOMo0A3S', NULL, NULL, NULL),
 (28, 'downa', '$2y$10$OosKk0SATp6SdjDS/7n9juHR94f/TX6tnt1wewc9AFe5m1sn/Mkx6', NULL, NULL, NULL),
 (29, 'somey99', '$2y$10$5cuGR3XLok2fgmKQB6l4OeO9cupUj7.CLpxQa8qHHRf5bdVGSvBPW', NULL, NULL, NULL),
-(30, 'budyman', '$2y$10$e2/pT92TcqSeK9UoR4jKqu4Xpeft0UaszTKuOz2rmG0Hnm1NYokam', NULL, NULL, NULL);
+(30, 'budyman', '$2y$10$e2/pT92TcqSeK9UoR4jKqu4Xpeft0UaszTKuOz2rmG0Hnm1NYokam', NULL, NULL, NULL),
+(31, '', '$2y$10$3zq/zyqUadnNQszoCTcNu.X.C7peb8Qc863IteQ7K4Ja4uI/pKoTG', NULL, NULL, NULL),
+(32, 'athifah', '$2y$10$dC1TblrZXB1yrFU2lvqpt.EIXeQ0ycNIxxruQMFIZJDbh.eqnvGD2', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -130,12 +146,17 @@ ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`);
 
 --
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pengiriman`
 --
 ALTER TABLE `pengiriman`
-  ADD PRIMARY KEY (`resi`),
-  ADD KEY `id_donatur` (`id_donatur`),
-  ADD KEY `id_penerima` (`id_penerima`);
+  ADD PRIMARY KEY (`id_pengiriman`),
+  ADD KEY `id_buku` (`id_buku`);
 
 --
 -- Indexes for table `user`
@@ -151,13 +172,41 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pengiriman`
+--
+ALTER TABLE `pengiriman`
+  MODIFY `id_pengiriman` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `buku`
+--
+ALTER TABLE `buku`
+  ADD CONSTRAINT `buku_ibfk_2` FOREIGN KEY (`kategori`) REFERENCES `kategori_buku` (`id_kategori`);
+
+--
+-- Constraints for table `pengiriman`
+--
+ALTER TABLE `pengiriman`
+  ADD CONSTRAINT `pengiriman_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

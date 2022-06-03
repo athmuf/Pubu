@@ -6,7 +6,7 @@ if( !isset($_SESSION["login"]) ) {
     exit;
 }
 
-require "parts/header.php"
+require "parts/header.php";
 ?>
 <a href="endsession.php">logout</a>
 
