@@ -65,7 +65,7 @@ require "parts/header.php";
                   </div>
                 </div>
                 <div class="d-flex justify-content-start">
-                <button name="register" type="submit" class="btn btn-dark">Logout</button>
+                <a href="endsession.php" name="register" type="submit" class="btn btn-dark">Logout</a>
                 </div>
               </div>
             </div>
