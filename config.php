@@ -38,7 +38,8 @@ function upload($data) {
     $query = "INSERT INTO buku
                  VALUES ('0', '0', '$judul_buku', '$pengarang', '$penerbit', '$kategori', '$deskripsi', '$gambar', '$nama', '$kontak', '$alamat')";
     mysqli_query($conn, $query);
-
+    var_dump($query);
+    var_dump(mysqli_affected_rows($conn));
     return mysqli_affected_rows($conn);
 }
 
