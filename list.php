@@ -12,7 +12,6 @@ if (isset($_GET['kategori'])) {
     $kategori = $_GET['kategori'];  
     $result=mysqli_query($conn, "SELECT * FROM buku WHERE kategori = '{$kategori}'");
     $cari=mysqli_fetch_assoc($result);
-    var_dump($cari['judul_buku']);
 }
 
 
